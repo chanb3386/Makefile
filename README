@@ -1,0 +1,30 @@
+/*test machine:  VOLE
+* date: 10/09/2019
+* name: Brandon Chan
+* x500: chanx411
+*/
+
+Purpose: The purpose of this program is to parse a Makefile and then but them into blocks.
+After it depends on the flags in the command line. ./mymake -r make means to print all recipes in order of execution. ./mymake -p make means to print info of the blocks, including name, #dep, #rec, what the deps are and all recipes. This goes in top down order of the makefile. ./mymake make executes the entire makefile. ./mymake make target will execute the subtree of target and target. All executions are done by DFS.
+
+Compilation: Simply call gcc -o main.c or in the src folder, or simply call make in the proj1 folder.
+
+What program does:
+1. Open the makefile. If it doesn't exist, end.
+2. Then, assuming the file opened, we will get the blocks and put them in an array.
+--> if a target is called, it will only put blocks in the target subtree and the target itself.
+3. if you are executing, the program will add all blocks to the stack via DFS, meaning the first executed will be on the top of the stack.
+3a. After creating the stack, it will execute by popping the stack and forking and execing for each recipe.
+4. If it isnt executing its printing -p or -r.
+4(-p). This will print in order of the blocks array (top to bottom of make file) from top to bottom and print all info along with it.
+4(-r). This will print all recipes by using DFS. It will search for the bottom most depenenicies and print their recipes. If the only dependency is a .c file, just print there, as a .c has no dependencies.
+
+Assumptions: The only additional "assumption" I made was that .c files will have no dependencies and will never occupy a space in thje blocks array. Not really an assumption as this is just a standard makefile.
+
+Team: Brandon Chan, chanx411
+
+Contributions: all of it baby
+
+No EC
+
+:) thanks for grading
